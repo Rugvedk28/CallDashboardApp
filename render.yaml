@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: employee-call-reporting
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
+      - key: APP_TIME_ZONE
+        value: Asia/Kolkata
+      - key: STORAGE_PROVIDER
+        value: google_sheets
+      - key: ADMIN_CODE
+        sync: false
+      - key: GOOGLE_SCRIPT_URL
+        sync: false
+      - key: GOOGLE_SCRIPT_SECRET
+        sync: false

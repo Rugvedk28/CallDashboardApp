@@ -1,0 +1,348 @@
+:root {
+  --bg: #f4efe7;
+  --surface: rgba(255, 252, 247, 0.82);
+  --surface-strong: #fff9f0;
+  --ink: #1f2933;
+  --muted: #5d6b78;
+  --accent: #0f766e;
+  --accent-deep: #134e4a;
+  --accent-soft: #ccfbf1;
+  --line: rgba(31, 41, 51, 0.12);
+  --danger: #b42318;
+  --success: #027a48;
+  --shadow: 0 22px 60px rgba(15, 23, 42, 0.12);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.2), transparent 28%),
+    radial-gradient(circle at top right, rgba(217, 119, 6, 0.18), transparent 32%),
+    linear-gradient(160deg, #f8f3ea 0%, #efe7db 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.45) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 90%);
+}
+
+.shell {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 36px 0 48px;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  margin-bottom: 4px;
+  font-size: 1.4rem;
+}
+
+.lead,
+.section-heading p,
+label,
+th,
+td {
+  color: var(--muted);
+}
+
+.lead {
+  max-width: 740px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.form-card,
+.filter-card,
+.narrow-card,
+.stat-card {
+  padding: 24px;
+}
+
+.narrow-card {
+  max-width: 460px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.date-chip {
+  min-width: 180px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(204, 251, 241, 0.8), rgba(255, 255, 255, 0.8));
+  border: 1px solid rgba(15, 118, 110, 0.14);
+}
+
+.date-chip span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.date-chip strong {
+  font-size: 1rem;
+}
+
+.report-form,
+.stack-form {
+  display: grid;
+  gap: 18px;
+}
+
+.doctor-grid,
+.summary-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.doctor-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.summary-grid {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  margin: 24px 0;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 15px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(15, 118, 110, 0.55);
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.14);
+  transform: translateY(-1px);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.total-tile input {
+  font-weight: 800;
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(255, 249, 240, 1));
+}
+
+button,
+.ghost-button {
+  border: none;
+  border-radius: 999px;
+  padding: 13px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+button:hover,
+.ghost-button:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: white;
+  box-shadow: 0 12px 24px rgba(15, 118, 110, 0.24);
+}
+
+.secondary-button {
+  background: rgba(15, 118, 110, 0.12);
+  color: var(--accent-deep);
+}
+
+.ghost-button {
+  color: var(--accent-deep);
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.ghost-button.solid {
+  background: rgba(31, 41, 51, 0.05);
+}
+
+.form-message {
+  min-height: 22px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.form-message[data-state="error"] {
+  color: var(--danger);
+}
+
+.form-message[data-state="success"] {
+  color: var(--success);
+}
+
+.filter-row,
+.filter-actions {
+  display: flex;
+  gap: 14px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.filter-row {
+  justify-content: space-between;
+}
+
+.stat-card {
+  min-height: 132px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stat-card span {
+  color: var(--muted);
+}
+
+.stat-card strong {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 920px;
+}
+
+th,
+td {
+  padding: 14px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+th {
+  color: var(--ink);
+  font-size: 0.85rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 28px 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 20px, 100%);
+    padding-top: 22px;
+  }
+
+  .hero,
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .date-chip,
+  .narrow-card {
+    width: 100%;
+  }
+
+  .filter-actions {
+    width: 100%;
+  }
+
+  .filter-actions button,
+  .ghost-button,
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+}

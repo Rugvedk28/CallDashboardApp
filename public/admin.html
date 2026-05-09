@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Admin only</p>
+          <h1>Daily export dashboard</h1>
+          <p class="lead">
+            Review employee submissions, check doctor totals for the day, and download an Excel-friendly CSV file.
+          </p>
+        </div>
+        <a class="ghost-button" href="/">Employee form</a>
+      </section>
+
+      <section id="loginPanel" class="card narrow-card">
+        <div class="section-heading">
+          <div>
+            <h2>Admin login</h2>
+            <p>Use your admin code to access reports and exports.</p>
+          </div>
+        </div>
+
+        <form id="loginForm" class="stack-form">
+          <label>
+            Admin code
+            <input id="adminCode" type="password" placeholder="Enter admin code" required />
+          </label>
+          <button class="primary-button" type="submit">Open dashboard</button>
+          <p id="loginMessage" class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="dashboardPanel" class="hidden">
+        <div class="card filter-card">
+          <div class="filter-row">
+            <label>
+              Report date
+              <input id="reportDate" type="date" />
+            </label>
+            <div class="filter-actions">
+              <button id="refreshButton" class="secondary-button" type="button">Refresh</button>
+              <button id="exportButton" class="primary-button" type="button">Download CSV</button>
+              <button id="logoutButton" class="ghost-button solid" type="button">Logout</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-grid" id="summaryGrid"></div>
+
+        <section class="card">
+          <div class="section-heading">
+            <div>
+              <h2>Submitted reports</h2>
+              <p id="tableCaption">Loading reports...</p>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Employee</th>
+                  <th>Call details</th>
+                  <th>Consulting physician</th>
+                  <th>Surgeon</th>
+                  <th>Orthos</th>
+                  <th>Urologist</th>
+                  <th>Gynacologist</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="submissionsBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/admin.js"></script>
+  </body>
+</html>

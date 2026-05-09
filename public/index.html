@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Call Reporting</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Daily employee reporting</p>
+          <h1>Doctor coverage tracker</h1>
+          <p class="lead">
+            Employees can submit their daily call details here. Today's date is captured
+            automatically, and doctor-type totals are summed for them.
+          </p>
+        </div>
+        <a class="ghost-button" href="/admin">Admin dashboard</a>
+      </section>
+
+      <section class="card form-card">
+        <div class="section-heading">
+          <div>
+            <h2>Submit today's report</h2>
+            <p>One form per employee per day.</p>
+          </div>
+          <div class="date-chip">
+            <span>Date</span>
+            <strong id="todayLabel">Loading...</strong>
+          </div>
+        </div>
+
+        <form id="reportForm" class="report-form">
+          <label>
+            Employee name
+            <input id="employeeName" name="employeeName" type="text" required placeholder="Enter your name" />
+          </label>
+
+          <label>
+            Call details
+            <textarea
+              id="callDetails"
+              name="callDetails"
+              rows="5"
+              placeholder="Add visit notes, hospitals, important outcomes, follow-ups, or any relevant call details."
+            ></textarea>
+          </label>
+
+          <div class="doctor-grid">
+            <label>
+              Consulting physician
+              <input class="count-input" data-count-field="consultingPhysician" type="number" min="0" value="0" />
+            </label>
+
+            <label>
+              Surgeon
+              <input class="count-input" data-count-field="surgeon" type="number" min="0" value="0" />
+            </label>
+
+            <label>
+              Orthos
+              <input class="count-input" data-count-field="orthos" type="number" min="0" value="0" />
+            </label>
+
+            <label>
+              Urologist
+              <input class="count-input" data-count-field="urologist" type="number" min="0" value="0" />
+            </label>
+
+            <label>
+              Gynacologist
+              <input class="count-input" data-count-field="gynacologist" type="number" min="0" value="0" />
+            </label>
+
+            <label class="total-tile">
+              Total doctors covered
+              <input id="totalDoctors" type="number" value="0" readonly />
+            </label>
+          </div>
+
+          <button class="primary-button" type="submit">Submit report</button>
+          <p id="formMessage" class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
