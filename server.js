@@ -4,8 +4,10 @@ const http = require("http");
 const crypto = require("crypto");
 const { URL } = require("url");
 
-const HOST = process.env.HOST || "127.0.0.1";
-const PORT = Number(process.env.PORT || 3000);
+// const HOST = process.env.HOST || "127.0.0.1";
+// const PORT = Number(process.env.PORT || 3000);
+const HOST = process.env.HOST || '0.0.0.0';
+const PORT = process.env.PORT || 3000;
 const ADMIN_CODE = process.env.ADMIN_CODE || "admin123";
 const APP_TIME_ZONE = process.env.APP_TIME_ZONE || "Asia/Kolkata";
 const STORAGE_PROVIDER = process.env.STORAGE_PROVIDER || "local";
