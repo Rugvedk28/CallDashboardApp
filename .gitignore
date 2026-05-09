@@ -1,2 +1,8 @@
 data/
 exports/
+echo ".env" >> .gitignore
+echo ".env.local" >> .gitignore
+echo ".env.production" >> .gitignore
+.env
+.env.local
+.end.production
