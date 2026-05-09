@@ -6,3 +6,4 @@ echo ".env.production" >> .gitignore
 .env
 .env.local
 .end.production
+.env.example
